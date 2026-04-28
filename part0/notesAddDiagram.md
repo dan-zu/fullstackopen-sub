@@ -8,8 +8,8 @@ sequenceDiagram
     server-->>browser: response with HTTP status code 302, request redirected to URL address supplied in response content (/exampleapp/notes) for the browser navigate to 
     deactivate server
 
-    Note right of browser: The browser request Payload contains the note content (entered by user)
-    Data is sent as the body of the POST request. server process the data creates a new note object and adds it
+    Note right of browser: The browser request Payload contains the note conte(entered by user) Data is sent as the body of the POST request. server process the data, creates a new note object and adds it
+   
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
