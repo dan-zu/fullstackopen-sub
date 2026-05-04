@@ -5,7 +5,11 @@ sequenceDiagram
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note 
     activate server
-    server-->>browser: response with HTTP status code 302, This is a URL redirect, with which the server asks the browser to perform a new HTTP GET request to the address defined in the header's Location - the address notes.
+    server-->>browser: response with HTTP status code 302, This is a URL redirect,
+    with which the server asks the browser to perform a new HTTP GET request to the address defined in the header's Location - the address notes.
+    
+    Note right of server: Data is sent as the body of the POST request.
+    The server can access the data by accessing the req.body, creates a new note object, and adds it to an array called notes.
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
