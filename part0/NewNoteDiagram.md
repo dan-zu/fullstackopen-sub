@@ -3,13 +3,9 @@ sequenceDiagram
     participant browser
     participant server
 
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note 
     activate server
-    server-->>browser: response with HTTP status code 302, request redirected to URL address supplied in response content (/exampleapp/notes) for the browser navigate to 
-    deactivate server
-
-    Note right of browser: The browser request Payload contains the note conte(entered by user) Data is sent as the body of the POST request. server process the data, creates a new note object and adds it
-   
+    server-->>browser: response with HTTP status code 302, This is a URL redirect, with which the server asks the browser to perform a new HTTP GET request to the address defined in the header's Location - the address notes.
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
